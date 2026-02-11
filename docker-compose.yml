@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # 1. La API del alumno (Donde trabajan)
+  backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile.backend
+    command: uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports: ["8000:8000"]
+    environment:
+      - OPENAI_BASE_URL=http://mock-llm:8001/v1  # <-- TRUCO MAESTRO: Apuntamos al Mock
+      - OPENAI_API_KEY=sk-mock-key-123
+    depends_on:
+      - mock-llm
+
+  # 2. El Frontend
+  frontend:
+    build: 
+      context: .
+      dockerfile: Dockerfile.frontend
+    command: uv run streamlit run frontend/app.py --server.port 8501 --server.address 0.0.0.0
+    ports: ["8501:8501"]
+    environment:
+      - BACKEND_URL=http://backend:8000
+
+  # 3. El Mock LLM (Nuevo: cumple con nextAI.docx)
+  mock-llm:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./app/mock_llm.py:/app/mock_llm.py
+    # Instalamos fastapi y uvicorn al vuelo en el contenedor mock (ligero)
+    command: sh -c "pip install fastapi uvicorn pydantic && uvicorn mock_llm:mock_app --host 0.0.0.0 --port 8001"
+    ports: ["8001:8001"]

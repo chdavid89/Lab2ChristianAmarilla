@@ -1,0 +1,22 @@
+[project]
+name = "ia-dev-template"
+version = "0.1.0"
+description = "Template con Mock LLM y soporte para Agentes"
+requires-python = ">=3.11"  # Recomendación de seguridad (3.14 es muy arriesgado aún)
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic>=2.6.0",
+    "httpx>=0.26.0",
+    "openai>=1.12.0",  # Usaremos el cliente oficial incluso para el Mock
+    "streamlit>=1.31.0",
+    "python-dotenv>=1.0.0"
+]
+
+[dev-dependencies]
+pytest = ">=8.0.0"
+ruff = ">=0.2.0"
+coverage = ">=7.0.0"  # Agregado según tu archivo
+
+[tool.ruff]
+line-length = 88

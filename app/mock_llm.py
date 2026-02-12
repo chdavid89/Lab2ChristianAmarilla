@@ -1,5 +1,5 @@
 # app/mock_llm.py
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List, Optional
 import time

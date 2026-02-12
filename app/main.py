@@ -1,6 +1,7 @@
-def main():
-    print("Hello from ia-dev-template!")
+from fastapi import FastAPI
 
+app = FastAPI(title="IA Dev Template")
 
-if __name__ == "__main__":
-    main()
+@app.get("/health")
+def health():
+    return {"status": "ok"}

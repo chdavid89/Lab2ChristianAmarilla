@@ -1,4 +1,4 @@
-### 🤖 Sobre Herramientas de IA (Cursor, Claude Code, Copilot)
+###  Sobre Herramientas de IA (Cursor, Claude Code, Copilot)
 
 Este diplomado fomenta el uso de herramientas avanzadas ("Power Tools"), pero bajo la política de "Copiloto, no Piloto Automático".
 

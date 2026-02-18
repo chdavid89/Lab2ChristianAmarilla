@@ -8,6 +8,7 @@ Mock Mode: Por defecto, este repo usa un "Mock LLM" local. Si usas herramientas 
 
 Vibe Coding: Está prohibido entregar código que funciona "de casualidad". Si se te pregunta "¿por qué usaste esta librería?", y la respuesta es "porque Claude lo puso", se considera fallo en la defensa.
 
+
 ### ¿Cómo se instala con uv según cada caso?
 
 Setup estándar (core + dev, para todos):

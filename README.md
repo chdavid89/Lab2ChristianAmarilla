@@ -1,4 +1,23 @@
-###  Sobre Herramientas de IA (Cursor, Claude Code, Copilot)
+# ia-dev-template
+
+Template del Diplomado: IA aplicada al Desarrollo de Software.
+Incluye FastAPI, un Mock de LLM, estructura para agentes, tests y CI.
+
+## Requisitos
+- Python 3.11+ (recomendado)
+- uv (gestor de dependencias)
+- Git
+
+> Referencias:
+> - uv docs: https://docs.astral.sh/uv/
+> - FastAPI docs: https://fastapi.tiangolo.com/
+
+## Setup (obligatorio)
+```bash
+uv sync
+```
+
+## 🤖 Sobre Herramientas de IA  permitidas(Cursor, Claude Code, Copilot)
 
 Este diplomado fomenta el uso de herramientas avanzadas ("Power Tools"), pero bajo la política de "Copiloto, no Piloto Automático".
 
@@ -8,23 +27,13 @@ Mock Mode: Por defecto, este repo usa un "Mock LLM" local. Si usas herramientas 
 
 Vibe Coding: Está prohibido entregar código que funciona "de casualidad". Si se te pregunta "¿por qué usaste esta librería?", y la respuesta es "porque Claude lo puso", se considera fallo en la defensa.
 
+### 🧠 Flujo de Trabajo "AI-Native" (Estándar 2026)
+1. Ideación (Humano): Defines el Qué y el Por qué en un Issue de GitHub.
 
+2. Scaffolding (Agente): Usas uv + Cursor/Claude para generar la estructura base.
 
+3. Refinamiento (Humano + Linter): Corres ruff y ajustas la arquitectura. Aquí aplicas el filtro de "AI Code Smells".
 
-### ¿Cómo se instala con uv según cada caso?
+4. Tests (Híbrido): Pides a la IA que genere casos borde ("Edge Cases"), tú validas que la lógica de negocio sea correcta.
 
-Setup estándar (core + dev, para todos):
-
-uv sync (uv incluye el grupo dev por defecto)
-
-Si querés incluir la UI (Streamlit):
-
-uv sync --extra ui
-
-Si querés incluir OpenAI real (además del mock):
-
-uv sync --extra llm
-
-Todo junto (para vos como docente):
-
-uv sync --extra ui --extra llm
+5. Review (Humano): NADA entra a main sin que lo hayas leído y entendido. Rule of thumb: Si no puedes explicárselo al profesor, no lo commitees.

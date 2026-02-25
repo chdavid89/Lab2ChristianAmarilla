@@ -16,23 +16,28 @@ class ChatCompletionRequest(BaseModel):
     messages: List[Message]
     temperature: Optional[float] = 0.7
 
+# Simulación de memoria en memoria (se borra al reiniciar)
+CONVERSATION_HISTORY = {}
+
 @mock_app.post("/v1/chat/completions")
 async def chat_completions(request: ChatCompletionRequest):
-    """Simula una respuesta de OpenAI basada en reglas simples (Heurística)."""
-    
     last_msg = request.messages[-1].content.lower()
     
-    # Respuestas "Golden Set" predeterminadas para tests
-    if "test_connection" in last_msg:
-        content = "Conexión exitosa con el Mock LLM."
-    elif "sql" in last_msg:
-        content = "SELECT * FROM users WHERE active = 1;"
-    elif "python" in last_msg:
-        content = "def hello_world():\n    print('Hello AI')"
+    # Detección básica de intención "Agentica"
+    if "plan" in last_msg:
+        content = """Entendido. Aquí está el plan de ejecución (Simulado GPT-5.3):
+1. Analizar requisitos.
+2. Crear archivo de pruebas.
+3. Implementar código.
+¿Procedo?"""
+    elif "test" in last_msg or "prueba" in last_msg:
+        content = "Generando tests con pytest... (Simulación: Se han creado 3 tests unitarios cubriendo edge cases)."
+    elif "refactor" in last_msg:
+        content = "He detectado complejidad ciclomática alta. Dividiendo la función en tres componentes más pequeños..."
     else:
-        content = f"Soy un Mock LLM. Recibí tu mensaje: '{last_msg[:20]}...'. Para respuestas reales, configura tu API Key."
+        # Fallback genérico
+        content = f"Simulación GPT-5.3 (Mock): Recibí tu input '{last_msg[:15]}...'. Configura tu API Key real para lógica compleja."
 
-    # Simulamos la estructura de respuesta real de OpenAI
     return {
         "id": "chatcmpl-mock-123",
         "object": "chat.completion",

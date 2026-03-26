@@ -37,3 +37,5 @@ Vibe Coding: Está prohibido entregar código que funciona "de casualidad". Si s
 4. Tests (Híbrido): Pides a la IA que genere casos borde ("Edge Cases"), tú validas que la lógica de negocio sea correcta.
 
 5. Review (Humano): NADA entra a main sin que lo hayas leído y entendido. Regla: Si no puedes explicarlo, no lo commitees.
+
+6. Prueba

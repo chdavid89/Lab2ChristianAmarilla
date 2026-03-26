@@ -23,7 +23,7 @@ Este diplomado fomenta el uso de herramientas avanzadas ("Power Tools"), pero ba
 
 Modo Manual: En el Módulo 1 y 2, se recomienda desactivar el "auto-apply" de Claude Code/Cursor. Debes leer cada línea que la IA sugiere.
 
-Mock Mode: Por defecto, este repo usa un "Mock LLM" local. Si usas herramientas externas (Claude Code), asegúrate de que tus PRs pasen los tests del repo, no solo los tests que la IA escribe por ti.
+Mock Mode: Por defecto, este repo usa un "Mock LLM" local. Si usas herramientas externas (ejemplo, Claude Code), asegúrate de que tus PRs pasen los tests del repo, no solo los tests que la IA escribe por ti.
 
 Vibe Coding: Está prohibido entregar código que funciona "de casualidad". Si se te pregunta "¿por qué usaste esta librería?", y la respuesta es "porque Claude lo puso", se considera fallo en la defensa.
 
@@ -36,4 +36,4 @@ Vibe Coding: Está prohibido entregar código que funciona "de casualidad". Si s
 
 4. Tests (Híbrido): Pides a la IA que genere casos borde ("Edge Cases"), tú validas que la lógica de negocio sea correcta.
 
-5. Review (Humano): NADA entra a main sin que lo hayas leído y entendido. Rule of thumb: Si no puedes explicárselo al profesor, no lo commitees.
+5. Review (Humano): NADA entra a main sin que lo hayas leído y entendido. Regla: Si no puedes explicarlo, no lo commitees.

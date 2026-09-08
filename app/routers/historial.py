@@ -34,7 +34,9 @@ def list_transactions(
     except ValidationError as error:
         detail = error.errors()[0]
         if detail.get("loc") == ("page_size",) and detail.get("type") == "less_than_equal":
-            detail = "page_size máximo permitido: 200"
+            raise HTTPException(
+                status_code=400, detail="page_size máximo permitido: 200"
+            ) from error
         raise HTTPException(status_code=400, detail=detail) from error
     except HistorialError as error:
         raise HTTPException(status_code=400, detail=str(error)) from error

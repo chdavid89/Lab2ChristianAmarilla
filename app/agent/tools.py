@@ -2,7 +2,6 @@
 
 from pathlib import Path
 
-
 PRD_PATH = Path(__file__).resolve().parents[2] / "docs" / "prd" / "PRD.md"
 _CONTEXT_LINES = 3
 _MAX_HITS = 3

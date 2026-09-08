@@ -5,7 +5,6 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-
 LOG_PATH = Path(__file__).resolve().parents[2] / "logs" / "agent_run.jsonl"
 
 

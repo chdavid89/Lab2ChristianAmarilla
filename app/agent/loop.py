@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import os
-from typing import Any
+from typing import Any, cast
 
 from app.agent.logger import log_step
 from app.agent.tools import TOOLS_SCHEMA, buscar_regla_prd
@@ -55,7 +55,7 @@ def _call_llm(llm_client: Any, messages: list[dict[str, str]], model: str) -> st
     content = response.choices[0].message.content
     if not content:
         raise ValueError("El LLM devolvió una respuesta vacía.")
-    return content
+    return cast(str, content)
 
 
 def run_agent(question: str, llm_client: Any, model: str = DEFAULT_MODEL) -> str:
